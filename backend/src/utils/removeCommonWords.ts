@@ -7,5 +7,5 @@ export function removeCommonWords(sentence: string) {
 
   const filteredSentence = filteredWords.join(' ');
 
-  return filteredSentence;
+  return filteredSentence.trim();
 }

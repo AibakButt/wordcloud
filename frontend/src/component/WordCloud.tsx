@@ -31,7 +31,7 @@ const WordCloud: FC<IWordCloud> = ({
   const calculateCanvasSize = (wordCloudLength: number | undefined) => {
     const baseSize = 400; 
     const minSize = 400;
-    const scaleFactor = 90; 
+    const scaleFactor = 80; 
 
     if (wordCloudLength && wordCloudLength > 0) {
       const dynamicSize = baseSize * (wordCloudLength / scaleFactor); 

@@ -6,7 +6,7 @@ import { useLazyQuery } from '@apollo/client';
 import React, { useCallback, useEffect, useState } from 'react';
 
 function Home() {
-  const DEFAULT_WORDS_LENGTH = 10
+  const DEFAULT_WORDS_LENGTH = 5;
   const [wordLength, setWordLength] = useState(DEFAULT_WORDS_LENGTH);
 
   const updateWordLength = useCallback((value: number) => {

@@ -2,12 +2,12 @@ import express from 'express';
 import typeDefs from "./graphql/typeDefs" ;
 import resolvers from './graphql/resolvers';
 import { ApolloServer } from 'apollo-server-express';
-import { connect } from './database';
+import { connectDB } from './database';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-connect()
+connectDB()
 
 const server = new ApolloServer({ typeDefs, resolvers });
 server.applyMiddleware({ app, path: "/v1/graph/api"});

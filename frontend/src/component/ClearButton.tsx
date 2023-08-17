@@ -1,4 +1,3 @@
-// frontend/components/ClearButton.tsx
 import React from 'react';
 import { useMutation } from '@apollo/client';
 import { CLEAR_SENTENCES } from '@/graphql/mutations/sentence';

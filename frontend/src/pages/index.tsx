@@ -2,12 +2,12 @@ import ClearButton from '@/component/ClearButton';
 import SentenceForm from '@/component/SentenceForm';
 import WordCloud from '@/component/WordCloud';
 import { GET_WORD_CLOUD } from '@/graphql/queries/sentences';
-import { useLazyQuery, useQuery } from '@apollo/client';
-import React, { useCallback, useState } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import React, { useCallback, useEffect, useState } from 'react';
 
 function Home() {
-
-  const [wordLength, setWordLength] = useState(10);
+  const DEFAULT_WORDS_LENGTH = 10
+  const [wordLength, setWordLength] = useState(DEFAULT_WORDS_LENGTH);
 
   const updateWordLength = useCallback((value: number) => {
 
@@ -22,11 +22,13 @@ function Home() {
 
   const [runQuery, { loading, data, error }] = useLazyQuery(GET_WORD_CLOUD)
 
-
-
   const handleGetWordCloud = () => {
     runQuery({ variables: { length: wordLength } })
   }
+
+  useEffect(() => {
+    runQuery({ variables: { length: DEFAULT_WORDS_LENGTH } }) //Run query with default length
+  }, [runQuery])
 
   return (
     <div className="container mx-auto p-4">

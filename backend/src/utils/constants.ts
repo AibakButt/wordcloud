@@ -1,5 +1,5 @@
-export const commonWordsSet = new Set([
-  'my', 'the', 'a', 'an',  'is', 'am', 'are', 'was', 'were', 'has', 'have', 'had', 'do', 'does', 'did',
+export const COMMON_WORDS_SET = new Set([
+  'this', 'that', 'my', 'the', 'a', 'an',  'is', 'am', 'are', 'was', 'were', 'has', 'have', 'had', 'do', 'does', 'did',
   'shall', 'will', 'should', 'would', 'may', 'might', 'can', 'could', 'must',
   'i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them',
   'and', 'or', 'but', 'not', 'for', 'with', 'from', 'by', 'on', 'at', 'to', 'in',

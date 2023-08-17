@@ -7,7 +7,6 @@ export const ADD_SENTENCE = gql`
     }
   }
 `
-
 export const CLEAR_SENTENCES = gql`
   mutation ClearSentences {
     clearSentences

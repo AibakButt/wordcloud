@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import keys from '../config/keys';
 
-export async function connect() {
+export async function connectDB() {
 
   mongoose.connect(await keys.mongoURI, { });
 

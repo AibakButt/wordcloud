@@ -29,7 +29,7 @@ export const sentenceResolvers = {
           },
         },
         { $sort: { count: -1 } },
-        { $skip: 1 },
+        // { $skip: 1 },
         { $limit: length },
         {
           $project: {
@@ -60,6 +60,7 @@ export const sentenceResolvers = {
     
       try {
         const newSentences = await Sentence.insertMany(sentences);
+        await redisClient.flushall();
         return newSentences;
       } catch (error) {
         console.error('Error inserting sentences:', error);
@@ -68,6 +69,7 @@ export const sentenceResolvers = {
     },
 
     clearSentences: async () => {
+      await redisClient.flushall();
       await Sentence.deleteMany();
       return true;
     },

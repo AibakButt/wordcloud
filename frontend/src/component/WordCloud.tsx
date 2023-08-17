@@ -1,13 +1,9 @@
-// frontend/components/WordCloud.tsx
 import React, { FC, useCallback, useEffect, useRef } from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_WORD_CLOUD } from '@/graphql/queries/sentences';
 
 export type Word = {
   word: string;
   count: number;
 }
-
 interface IWordCloud {
   wordCloud: Array<Word>;
 }
@@ -33,19 +29,15 @@ const WordCloud: FC<IWordCloud> = ({
   }, [wordCloud?.length]);
 
   const calculateCanvasSize = (wordCloudLength: number | undefined) => {
-    const baseSize = 400; // Default canvas size
-    const minSize = 400; // Minimum canvas size
+    const baseSize = 400; 
+    const minSize = 400;
     const scaleFactor = 90; 
 
     if (wordCloudLength && wordCloudLength > 0) {
-      // Calculate canvas size based on wordCloud length
-      const dynamicSize = baseSize * (wordCloudLength / scaleFactor); // Adjust the divisor as needed
-
-      // Ensure the calculated size is within the specified range
+      const dynamicSize = baseSize * (wordCloudLength / scaleFactor); 
       return Math.max(minSize, dynamicSize);
     }
-
-    return baseSize; // Use default size if wordCloud length is not available
+    return baseSize;
   };
 
   
@@ -92,8 +84,8 @@ const WordCloud: FC<IWordCloud> = ({
           context.font = `${fontSize}px Arial`;
           context.fillStyle = color;
   
-          let x: number = 0,
-            y: number = 0;
+          let x: number = 0;
+          let y: number = 0;
           let collision = true;
   
           while (collision) {
@@ -129,7 +121,7 @@ const WordCloud: FC<IWordCloud> = ({
   return (
     <div>
       <h2 className="text-lg font-semibold mb-2">Word Cloud (Total Words): {wordCloud?.length}</h2>
-      <ul className="max-h-40 overflow-y-auto border-2 border-stone-400 p-2">
+      <ul className="max-h-200 overflow-y-auto border-2 border-stone-400 p-2">
         {wordCloud?.map((word: Word, index: number) => (
           <li key={index} className="mb-1">
             {word.word}: {word.count}

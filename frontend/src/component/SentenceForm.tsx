@@ -12,9 +12,7 @@ interface ISentenceForm {
 const SentenceForm: FC<ISentenceForm> = ({ wordLength, setWordLength, getWordCloud }) => {
   const [sentence, setSentence] = useState('');
 
-
   const [addSentence] = useMutation(ADD_SENTENCE);
-
 
   const handleAddSentence = () => {
     try {

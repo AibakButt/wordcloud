@@ -29,7 +29,7 @@ export const sentenceResolvers = {
           },
         },
         { $sort: { count: -1 } },
-        // { $skip: 1 },
+        { $skip: 1 },
         { $limit: length },
         {
           $project: {

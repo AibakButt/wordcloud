@@ -121,7 +121,7 @@ const WordCloud: FC<IWordCloud> = ({
   return (
     <div>
       <h2 className="text-lg font-semibold mb-2">Word Cloud (Total Words): {wordCloud?.length}</h2>
-      <ul className="max-h-200 overflow-y-auto border-2 border-stone-400 p-2">
+      <ul className="max-h-60 overflow-y-auto border-2 border-stone-400 p-2">
         {wordCloud?.map((word: Word, index: number) => (
           <li key={index} className="mb-1">
             {word.word}: {word.count}
